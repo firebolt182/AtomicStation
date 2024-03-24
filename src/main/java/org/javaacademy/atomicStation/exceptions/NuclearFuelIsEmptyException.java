@@ -1,4 +1,4 @@
-package org.javaacademy.atomicStation;
+package org.javaacademy.atomicStation.exceptions;
 
 public class NuclearFuelIsEmptyException extends Exception {
 
