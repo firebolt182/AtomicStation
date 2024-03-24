@@ -4,6 +4,8 @@ import org.javaacademy.atomicStation.exceptions.NuclearFuelIsEmptyException;
 import org.javaacademy.atomicStation.exceptions.ReactorWorkException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /*
@@ -13,12 +15,14 @@ import java.math.BigInteger;
 public class NuclearStation {
     private ReactorDepartment reactorDepartment;
 
-    private int totalGeneratedEnergy;
+    private BigInteger totalGeneratedEnergy;
+    private BigInteger accidentCountAllTime;
+
 
     @Autowired
     public NuclearStation(ReactorDepartment reactorDepartment) {
         this.reactorDepartment = reactorDepartment;
-        this.totalGeneratedEnergy = 0;
+        this.totalGeneratedEnergy = new BigInteger("0");
     }
 
     private void startYear() {
@@ -41,5 +45,10 @@ public class NuclearStation {
         for (int i = 0; i < year; i++) {
             startYear();
         }
+    }
+
+    //2.1 Изменение поля accidentCountAllTime
+    public void incrementAccident(int count) {
+        accidentCountAllTime = accidentCountAllTime.add(new BigInteger(String.valueOf(count)));
     }
 }
