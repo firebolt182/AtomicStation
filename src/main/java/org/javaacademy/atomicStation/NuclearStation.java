@@ -1,5 +1,7 @@
 package org.javaacademy.atomicStation;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.javaacademy.atomicStation.exceptions.NuclearFuelIsEmptyException;
 import org.javaacademy.atomicStation.exceptions.ReactorWorkException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +16,18 @@ import java.math.BigInteger;
 @Component
 public class NuclearStation {
     private ReactorDepartment reactorDepartment;
+    private SecutiryDepartment secutiryDepartment;
 
     private BigInteger totalGeneratedEnergy;
-    private BigInteger accidentCountAllTime;
+    @Getter
+    @Setter
+    private BigInteger accidentCountAllTime = new BigInteger("0");
 
 
     @Autowired
-    public NuclearStation(ReactorDepartment reactorDepartment) {
+    public NuclearStation(ReactorDepartment reactorDepartment, SecutiryDepartment secutiryDepartment) {
         this.reactorDepartment = reactorDepartment;
+        this.secutiryDepartment = secutiryDepartment;
         this.totalGeneratedEnergy = new BigInteger("0");
     }
 
@@ -39,12 +45,15 @@ public class NuclearStation {
         }
         System.out.printf("Атомная станция закончила работу." +
                 " За год Выработано %d киловатт/часов\n", generatedEnergy);
+        System.out.println("Количество инцидентов за год: " + secutiryDepartment.getCountAccidents());
+        secutiryDepartment.reset();
     }
 
     public void start(int year) {
         for (int i = 0; i < year; i++) {
             startYear();
         }
+        System.out.println("Количество инцидентов за всю работу станции: " + accidentCountAllTime);
     }
 
     //2.1 Изменение поля accidentCountAllTime
