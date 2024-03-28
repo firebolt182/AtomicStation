@@ -2,12 +2,12 @@ package org.javaacademy.atomicStation;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.javaacademy.atomicStation.department.ReactorDepartment;
+import org.javaacademy.atomicStation.department.SecutiryDepartment;
 import org.javaacademy.atomicStation.exceptions.NuclearFuelIsEmptyException;
 import org.javaacademy.atomicStation.exceptions.ReactorWorkException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /*
@@ -18,17 +18,16 @@ public class NuclearStation {
     private ReactorDepartment reactorDepartment;
     private SecutiryDepartment secutiryDepartment;
 
-    private BigInteger totalGeneratedEnergy;
+    private BigInteger totalGeneratedEnergy = BigInteger.ZERO;
     @Getter
     @Setter
-    private BigInteger accidentCountAllTime = new BigInteger("0");
+    private BigInteger accidentCountAllTime = BigInteger.ZERO;
 
 
     @Autowired
     public NuclearStation(ReactorDepartment reactorDepartment, SecutiryDepartment secutiryDepartment) {
         this.reactorDepartment = reactorDepartment;
         this.secutiryDepartment = secutiryDepartment;
-        this.totalGeneratedEnergy = new BigInteger("0");
     }
 
     private void startYear() {
