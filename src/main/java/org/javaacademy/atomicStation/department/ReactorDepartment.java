@@ -1,11 +1,11 @@
 package org.javaacademy.atomicStation.department;
 
+import java.math.BigInteger;
 import org.javaacademy.atomicStation.exceptions.NuclearFuelIsEmptyException;
 import org.javaacademy.atomicStation.exceptions.ReactorWorkException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.math.BigInteger;
 
 /*
  * Отвечает за производство электроэнергии

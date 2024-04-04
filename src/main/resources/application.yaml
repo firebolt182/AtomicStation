@@ -1,0 +1,4 @@
+economicdepartment:
+  currency: ruble
+  price: 100
+  country: ${COUNTRY_NAME:default}

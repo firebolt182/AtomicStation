@@ -1,11 +1,10 @@
 package org.javaacademy.atomicStation.department;
 
+import java.math.BigInteger;
 import org.javaacademy.atomicStation.NuclearStation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
-
-import java.math.BigInteger;
 
 @Component
 public class SecutiryDepartment {

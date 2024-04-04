@@ -1,5 +1,7 @@
 package org.javaacademy.atomicStation;
 
+import org.javaacademy.atomicStation.economic.FranceEconomicDepartment;
+import org.javaacademy.atomicStation.economic.MoroccoEconomicDepartment;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
