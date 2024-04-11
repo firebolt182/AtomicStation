@@ -1,24 +1,20 @@
 package org.javaacademy.atomicStation.department;
 
 import java.math.BigInteger;
+import lombok.Data;
 import org.javaacademy.atomicStation.exceptions.NuclearFuelIsEmptyException;
 import org.javaacademy.atomicStation.exceptions.ReactorWorkException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
-/*
- * Отвечает за производство электроэнергии
- */
-
 @Component
+@Data
 public class ReactorDepartment {
     private boolean isWork;
     private int startCount = 0;
     @Autowired
     private SecutiryDepartment secutiryDepartment;
 
-    //Возвращает киловатт-часы
     public BigInteger run() throws ReactorWorkException, NuclearFuelIsEmptyException {
         if (isWork) {
             secutiryDepartment.addAccident();

@@ -28,6 +28,7 @@ public class FranceEconomicDepartmentTest {
         BigDecimal actual = franceEconomicDepartment.computeYearsIncome(input);
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     @DisplayName("5 миллиардов квт")
     void countFiveBillionSuccess() {
@@ -36,6 +37,7 @@ public class FranceEconomicDepartmentTest {
         BigDecimal actual = franceEconomicDepartment.computeYearsIncome(input);
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     @DisplayName("1 миллиард квт")
     void countOneBillionSuccess() {
@@ -46,9 +48,18 @@ public class FranceEconomicDepartmentTest {
     }
 
     @Test
+    @DisplayName("Имя страны")
     void nameSuccess() {
         String expected = "Франция";
         String actual = franceEconomicDepartment.getCountry();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Наименование валюты")
+    void currencySuccess() {
+        String expected = "евро";
+        String actual = franceEconomicDepartment.getCurrency();
         Assertions.assertEquals(expected, actual);
     }
 }

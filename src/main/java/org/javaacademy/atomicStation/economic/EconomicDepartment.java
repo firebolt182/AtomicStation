@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Getter
 public abstract class EconomicDepartment {
-    @Value("${COUNTRY_NAME}")
+    @Value("${economicdepartment.country}")
     private String country;
     @Value("${economicdepartment.currency}")
     private String currency;
