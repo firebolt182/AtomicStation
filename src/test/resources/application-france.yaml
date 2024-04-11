@@ -1,4 +1,4 @@
 economicdepartment:
   currency: евро
   price: 0.5
-  country: ${COUNTRY_NAME:france}
+  country: Франция

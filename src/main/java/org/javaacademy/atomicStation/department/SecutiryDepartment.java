@@ -1,6 +1,7 @@
 package org.javaacademy.atomicStation.department;
 
 import java.math.BigInteger;
+import lombok.Getter;
 import org.javaacademy.atomicStation.NuclearStation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SecutiryDepartment {
     private NuclearStation nuclearStation;
+    @Getter
     private BigInteger accidentCountPeriod = new BigInteger("0");
 
     @Autowired

@@ -1,5 +1,6 @@
 package org.javaacademy.atomicStation;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import lombok.Data;
 import lombok.NonNull;
@@ -39,6 +40,7 @@ public class NuclearStation {
                 log.warn("Внимание! Происходят работы на атомной станции! Электричества нет!");
             }
         }
+        totalGeneratedEnergy = totalGeneratedEnergy.add(generatedEnergy);
         log.info("Атомная станция закончила работу."
                 + " За год Выработано {} киловатт/часов\n", generatedEnergy);
         log.info("Количество инцидентов за год: " + secutiryDepartment.getCountAccidents());
@@ -59,7 +61,7 @@ public class NuclearStation {
     }
 
     //2.1 Изменение поля accidentCountAllTime
-    public void incrementAccident(int count) {
-        accidentCountAllTime = accidentCountAllTime.add(new BigInteger(String.valueOf(count)));
+    public BigInteger incrementAccident(int count) {
+        return accidentCountAllTime.add(new BigInteger(String.valueOf(count)));
     }
 }
